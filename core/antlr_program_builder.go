@@ -685,8 +685,8 @@ func (b *AntlrProgramBuilder) parseExpressionCtxList(list []parser.IExpressionCo
 func (b *AntlrProgramBuilder) parseIf(ctx *parser.IfStContext) StatementI {
 	pe := ctx.ParExpression().(*parser.ParExpressionContext)
 	//expCtx := pe.Expression().(*parser.ExpressionContext)
-	expCtx := pe.Expression().(*parser.NotExpContext)
-	exp := b.parseExpress(expCtx)
+	//expCtx := pe.Expression().(*parser.NotExpContext)
+	exp := b.parseExpress(pe.Expression())
 	//ifStatCtx := ctx.Statement(0).(*parser.StatementContext)
 	ifStatCtx := ctx.Statement(0).(*parser.BlockStContext)
 	ifStat := b.parseStatement(ifStatCtx)
